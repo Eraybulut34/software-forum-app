@@ -27,8 +27,13 @@ function Navbar() {
       link: "/",
     },
   ];
+
+  const cardStyle: React.CSSProperties = {
+    backgroundColor: "#f0f2f5",
+    boxSizing: "border-box",
+  };
   return (
-    <Card>
+    <Card style={cardStyle}>
       <Row>
         <Col span={24}>
           <Space>
