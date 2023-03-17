@@ -2,6 +2,15 @@ import { Card } from "antd";
 import React from "react";
 
 
+const cardStyle= React.CSSProperties = {
+    width: "94%",
+    margin: "8px",
+    boxSizing: "border-box",
+    borderRadius: "8px",
+    boxShadow: "0 1px 2px 0 rgba(0,0,0,0.2), 0 3px 5px 0 rgba(0,0,0,0.19)"
+}
+
+
 function ContentCard(props: any) {
   const { title, description, image } = props;
 
@@ -9,11 +18,11 @@ function ContentCard(props: any) {
    <Card 
     title={title}
     bordered={false}
-    style={{ width: 300 }}
+    style={cardStyle}
     >
 
     <p>{description}</p>
-    
+
     </Card>
   );
 }
