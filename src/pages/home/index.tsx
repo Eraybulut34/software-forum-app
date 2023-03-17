@@ -4,9 +4,7 @@ import { Table } from "antd";
 function HomePage() {
   return (
     <div className="w-screen h-screen">
-      <Table/>
-        
-
+      anasayfa
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { Card, Col, Row, Space } from "antd";
 
 function Navbar() {
   const [logindialog, setLoginDialog] = useState(false);
@@ -22,20 +23,24 @@ function Navbar() {
 
   const links = [
     {
-      name: "React",
-      link: "/react-notlari",
-      textcolor: "text-info",
-    },
-    {
-      name: "TypeScript",
-      link: "/ts-notlari",
-      textcolor: "text-blue-500",
+      name: "Software Forum",
+      link: "/",
     },
   ];
   return (
-    <div>
-      ajshdajskd
-    </div>
+    <Card>
+      <Row>
+        <Col span={24}>
+          <Space>
+            {links.map((link: any) => (
+              <Link href={link.link} key={link.name} style={{ color: "black",fontWeight:"bold",fontSize: 16 }}>
+                {link.name}
+              </Link>
+            ))}
+          </Space>
+        </Col>
+      </Row>
+    </Card>
   );
 }
 
