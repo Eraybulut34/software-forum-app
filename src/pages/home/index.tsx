@@ -73,7 +73,7 @@ function HomePage() {
           {/* content cards */}
           <Row>
             {contents.map((content:any) => (
-              <Col span={24}>
+              <Col span={24} style={{margin: "1rem"}} key={content.title}>
                 <ContentCard title={content.title} description={content.description} image={content.image} />
               </Col>
             ))}
