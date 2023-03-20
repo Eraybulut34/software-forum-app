@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import AuthContext from "@/context/auth/authContext";
 import Link from "next/link";
-import { Card, Col, Row, Space } from "antd";
-
+import { Button, Card, Col, Row, Space } from "antd";
+import LoginModal from "./modals/LoginModal";
+import SignUpModal from "./modals/SignUpModal";
+interface NavbarContextType {
+  login: boolean;
+  signup: boolean;
+  dispatch: Function;
+}
 function Navbar() {
-  const [logindialog, setLoginDialog] = useState(false);
-  const [signup, setSignup] = useState(false);
+  const { dispatch }: NavbarContextType = useContext(AuthContext);
 
-  const handleSignup = () => {
-    setSignup(true);
-  };
-  const closeSignup = () => {
-    setSignup(false);
+  const loginOpen = () => {
+    dispatch({
+      type: "LOGIN_OPEN",
+    });
   };
 
-  const handleOpen = () => {
-    setLoginDialog(true);
-  };
-
-  const handleClose = () => {
-    setLoginDialog(false);
+  const signupOpen = () => {
+    dispatch({
+      type: "SIGNUP_OPEN",
+    });
   };
 
   const links = [
@@ -36,13 +39,31 @@ function Navbar() {
     <Card style={cardStyle}>
       <Row>
         <Col span={24}>
-          <Space>
-            {links.map((link: any) => (
-              <Link href={link.link} key={link.name} style={{ color: "black",fontWeight:"bold",fontSize: 16 }}>
-                {link.name}
-              </Link>
-            ))}
-          </Space>
+          <Row style={cardStyle}>
+            <Space>
+              {links.map((link: any, index: any) => (
+                <Link
+                  href={link.link}
+                  key={index}
+                  style={{ color: "black", fontWeight: "bold", fontSize: 16 }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </Space>
+            <Space>
+              <Button onClick={loginOpen} type="primary" ghost>
+                Login
+              </Button>
+              <LoginModal />
+            </Space>
+            <Space>
+              <Button onClick={signupOpen} type="primary" danger>
+                Signup
+              </Button>
+              <SignUpModal />
+            </Space>
+          </Row>
         </Col>
       </Row>
     </Card>
