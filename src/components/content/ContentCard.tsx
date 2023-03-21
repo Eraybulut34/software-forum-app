@@ -2,7 +2,7 @@ import { Card } from "antd";
 import React from "react";
 
 
-const cardStyle= React.CSSProperties = {
+const cardStyle = {
     width: "94%",
     margin: "8px",
     boxSizing: "border-box",
