@@ -49,7 +49,7 @@ function Navbar() {
                 </Link>
               ))}
             </Col>
-            <Col span={2} style={{ textAlign: "center",marginInline: "8px" }}>
+            <Col span={2} style={{ textAlign: "center" }}>
               <Button onClick={loginOpen} type="primary" ghost>
                 Login
               </Button>
