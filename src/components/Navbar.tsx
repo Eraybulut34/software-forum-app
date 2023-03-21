@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "@/context/auth/authContext";
 import Link from "next/link";
 import { Button, Card, Col, Row, Space } from "antd";
 import LoginModal from "./modals/LoginModal";
 import SignUpModal from "./modals/SignUpModal";
+import { TodoService } from "@/services/TodoService";
 interface NavbarContextType {
   login: boolean;
   signup: boolean;
   dispatch: Function;
 }
+const todoService = new TodoService();
 function Navbar() {
   const { dispatch }: NavbarContextType = useContext(AuthContext);
 
@@ -35,6 +37,16 @@ function Navbar() {
     backgroundColor: "#f0f2f5",
     boxSizing: "border-box",
   };
+
+  const getTodoDetail = async () => {
+    const response = await todoService.GetTodoDetail(1);
+    console.log(response);
+  };
+
+  useEffect(() => {
+    getTodoDetail();
+  }, []);
+
   return (
     <Card style={cardStyle}>
       <Row>
