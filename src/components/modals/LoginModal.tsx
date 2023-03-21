@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "@/context/auth/authContext";
-import { Modal, Button } from "antd";
+import { Modal, Button, Row, Col, Input } from "antd";
 interface loginContextType {
   login: boolean;
   dispatch: Function;
@@ -32,10 +32,14 @@ function LoginModal() {
         onOk={handleOpen}
         onCancel={handleClose}
       >
-        <p>Login Content</p>
-        <Button onClick={toSingup} type="primary" danger>
-          To Signup
-        </Button>
+        <Row>
+          <Col span={24} className="pa-2">
+            <Input placeholder="Email" />
+          </Col>
+          <Col span={24} className="pa-2">
+            <Input placeholder="Password" />
+          </Col>
+        </Row>
       </Modal>
     </div>
   );
