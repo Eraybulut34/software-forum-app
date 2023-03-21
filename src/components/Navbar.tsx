@@ -38,9 +38,7 @@ function Navbar() {
   return (
     <Card style={cardStyle}>
       <Row>
-        <Col span={24}>
-          <Row style={cardStyle}>
-            <Space>
+            <Col span={20}>
               {links.map((link: any, index: any) => (
                 <Link
                   href={link.link}
@@ -50,21 +48,19 @@ function Navbar() {
                   {link.name}
                 </Link>
               ))}
-            </Space>
-            <Space>
+            </Col>
+            <Col span={2} style={{ textAlign: "center",marginInline: "8px" }}>
               <Button onClick={loginOpen} type="primary" ghost>
                 Login
               </Button>
               <LoginModal />
-            </Space>
-            <Space>
+            </Col>
+            <Col span={2}>
               <Button onClick={signupOpen} type="primary" danger>
                 Signup
               </Button>
               <SignUpModal />
-            </Space>
-          </Row>
-        </Col>
+            </Col>
       </Row>
     </Card>
   );
