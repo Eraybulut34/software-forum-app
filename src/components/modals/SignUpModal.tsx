@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import AuthContext from "@/context/auth/authContext";
-import { Modal, Button } from "antd";
+import { Modal, Row, Col, Input } from "antd";
 
 interface SignupContextType {
   signup: false;
@@ -28,15 +28,22 @@ function SignUpModal() {
   return (
     <div>
       <Modal
-        title="Signup"
+        title="Kayıt Ol"
         open={signup}
         onOk={handleOpen}
         onCancel={handleClose}
       >
-        <p>Signup Content</p>
-        <Button onClick={toLogin} type="primary">
-          To Login
-        </Button>
+        <Row>
+          <Col span={24} className="pa-2">
+            <Input autoFocus={true} placeholder="Username" />
+          </Col>
+          <Col span={24} className="pa-2">
+            <Input placeholder="Email" />
+          </Col>
+          <Col span={24} className="pa-2">
+            <Input placeholder="Password" />
+          </Col>
+        </Row>
       </Modal>
     </div>
   );
