@@ -38,29 +38,29 @@ function Navbar() {
   return (
     <Card style={cardStyle}>
       <Row>
-            <Col span={20}>
-              {links.map((link: any, index: any) => (
-                <Link
-                  href={link.link}
-                  key={index}
-                  style={{ color: "black", fontWeight: "bold", fontSize: 16 }}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </Col>
-            <Col span={2} style={{ textAlign: "center" }}>
-              <Button onClick={loginOpen} type="primary" ghost>
-                Login
-              </Button>
-              <LoginModal />
-            </Col>
-            <Col span={2}>
-              <Button onClick={signupOpen} type="primary" danger>
-                Signup
-              </Button>
-              <SignUpModal />
-            </Col>
+        <Col span={20}>
+          {links.map((link: any, index: any) => (
+            <Link
+              href={link.link}
+              key={index}
+              style={{ color: "black", fontWeight: "bold", fontSize: 16 }}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </Col>
+        <Col span={2} style={{ textAlign: "center" }}>
+          <Button onClick={loginOpen} type="primary" ghost>
+            Login
+          </Button>
+          <LoginModal />
+        </Col>
+        <Col span={2}>
+          <Button onClick={signupOpen} type="primary" danger>
+            Signup
+          </Button>
+          <SignUpModal />
+        </Col>
       </Row>
     </Card>
   );
